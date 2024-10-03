@@ -32,10 +32,13 @@ public class Simulator {
     // The probability that a rabbit will be created in any given grid position.
     private static final double RABBIT_CREATION_PROBABILITY = 0.08;
 
+
+    private static final double TIGER_CREATION_PROBABILITY = 0.01;
     // Lists of animals in the field. Separate lists are kept for ease of
     // iteration.
     private ArrayList<Rabbit> rabbitList;
     private ArrayList<Fox> foxList;
+    private ArrayList<Tiger> tigerList;
 
     // The current state of the field.
     private Field field;
@@ -81,6 +84,7 @@ public class Simulator {
 
         rabbitList = new ArrayList<Rabbit>();
         foxList = new ArrayList<Fox>();
+        tigerList = new ArrayList<Tiger>();
         field = new Field(width, height);
         updatedField = new Field(width, height);
         stats = new FieldStats();
