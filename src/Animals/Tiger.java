@@ -8,7 +8,7 @@ import java.io.Serializable;
 import java.util.List;
 
 /**
- * A simple model of a tiger. Tigers age, move, eat rabbits, and die.
+ * A simple model of a tiger. Tigers age, move, eat foxs, and die.
  *
  * @author David J. Barnes and Michael Kolling.  Modified by David Dobervich 2007-2022
  */
@@ -23,9 +23,9 @@ public class Tiger {
     private static double BREEDING_PROBABILITY = 0.15;
     // The maximum number of births.
     private static int MAX_LITTER_SIZE = 6;
-    // The food value of a single rabbit. In effect, this is the
+    // The food value of a single fox. In effect, this is the
     // number of steps a tiger can go before it has to eat again.
-    private static int RABBIT_FOOD_VALUE = 6;
+    private static int FOX_FOOD_VALUE = 8;
     // A shared random number generator to control breeding.
 
     // -----------------------------------------------------
@@ -37,7 +37,7 @@ public class Tiger {
     private boolean alive;
     // The tiger's position
     private Location location;
-    // The tiger's food level, which is increased by eating rabbits.
+    // The tiger's food level, which is increased by eating foxes.
     private int foodLevel;
 
     /**
@@ -52,15 +52,15 @@ public class Tiger {
         alive = true;
         if (startWithRandomAge) {
             age = (int)(Math.random()*MAX_AGE);
-            foodLevel = (int)(Math.random()*RABBIT_FOOD_VALUE);
+            foodLevel = (int)(Math.random()*FOX_FOOD_VALUE);
         } else {
             // leave age at 0
-            foodLevel = RABBIT_FOOD_VALUE;
+            foodLevel = FOX_FOOD_VALUE;
         }
     }
 
     /**
-     * This is what the tiger does most of the time: it hunts for rabbits. In the
+     * This is what the tiger does most of the time: it hunts for foxs. In the
      * process, it might breed, die of hunger, or die of old age.
      *
      * @param currentField
@@ -74,7 +74,7 @@ public class Tiger {
         incrementAge();
         incrementHunger();
         if (alive) {
-            // New tigeres are born into adjacent locations.
+            // New tigers are born into adjacent locations.
             int births = breed();
             for (int b = 0; b < births; b++) {
                 Tiger newTiger = new Tiger(false);
@@ -121,8 +121,8 @@ public class Tiger {
     }
 
     /**
-     * Tell the tiger to look for rabbits adjacent to its current location. Only
-     * the first live rabbit is eaten.
+     * Tell the tiger to look for foxs adjacent to its current location. Only
+     * the first live fox is eaten.
      *
      * @param field
      *            The field in which it must look.
@@ -135,11 +135,11 @@ public class Tiger {
 
         for (Location where : adjacentLocations) {
             Object animal = field.getObjectAt(where);
-            if (animal instanceof Rabbit) {
-                Rabbit rabbit = (Rabbit) animal;
-                if (rabbit.isAlive()) {
-                    rabbit.setEaten();
-                    foodLevel = RABBIT_FOOD_VALUE;
+            if (animal instanceof Fox) {
+                Fox fox = (Fox) animal;
+                if (fox.isAlive()) {
+                    fox.setEaten();
+                    foodLevel = FOX_FOOD_VALUE;
                     return where;
                 }
             }

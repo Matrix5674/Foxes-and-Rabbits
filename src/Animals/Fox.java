@@ -202,4 +202,8 @@ public class Fox {
 	public void setFoodLevel(int fl) {
 		this.foodLevel = fl;
 	}
+
+	public void setEaten() {
+		alive = false;
+	}
 }

@@ -32,7 +32,7 @@ public class Simulator {
     // The probability that a rabbit will be created in any given grid position.
     private static final double RABBIT_CREATION_PROBABILITY = 0.08;
 
-
+    //The probability that a tiger will be created in any given grid position
     private static final double TIGER_CREATION_PROBABILITY = 0.01;
     // Lists of animals in the field. Separate lists are kept for ease of
     // iteration.
@@ -151,7 +151,7 @@ public class Simulator {
             }
         }
 
-        // Add new born rabbitList to the main list of rabbitList.
+        // Add newborn rabbitList to the main list of rabbitList.
         rabbitList.addAll(babyRabbitStorage);
 
         // Create new list for newborn foxList.
@@ -169,6 +169,22 @@ public class Simulator {
 
         // Add new born foxList to the main list of foxList.
         foxList.addAll(babyFoxStorage);
+
+        //Create new list for newborn tigerList.
+        ArrayList<Tiger> babyTigerStorage = new ArrayList<Tiger>();
+
+        // Loop through Tigers; let each run around.
+        for (int i = 0; i < tigerList.size(); i++) {
+            Tiger tiger = tigerList.get(i);
+            tiger.hunt(field, updatedField, babyTigerStorage);
+            if (!tiger.isAlive()){
+                tigerList.remove(i);
+                i--;
+            }
+        }
+
+        //Add newborn tigerList to the main list of tigerList.
+        tigerList.addAll(babyTigerStorage);
 
         // Swap the field and updatedField at the end of the step.
         Field temp = field;
@@ -194,6 +210,7 @@ public class Simulator {
         step = 0;
         rabbitList.clear();
         foxList.clear();
+        tigerList.clear();
         field.clear();
         updatedField.clear();
         initializeBoard(field);
@@ -227,11 +244,16 @@ public class Simulator {
                     rabbit.setLocation(row, col);
                     rabbitList.add(rabbit);
                     field.put(rabbit, row, col);
+                } else if (rand.nextDouble() <= TIGER_CREATION_PROBABILITY){
+                    Tiger tiger = new Tiger(true);
+                    tigerList.add(tiger);
+                    field.put(tiger, row, col);
                 }
             }
         }
         Collections.shuffle(rabbitList);
         Collections.shuffle(foxList);
+        Collections.shuffle(tigerList);
     }
 
     /**
@@ -276,6 +298,9 @@ public class Simulator {
                         rabbitList.remove((Rabbit) animal);
                     if (animal instanceof Fox)
                         foxList.remove((Fox) animal);
+                    if (animal instanceof Tiger){
+                        tigerList.remove((Tiger) animal);
+                    }
                     field.put(null, locToCheck);
                     updatedField.put(null, locToCheck);
                 }
