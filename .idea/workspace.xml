@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="16cd3634-5a84-4c5b-8e77-82df1c7d6a43" name="Changes" comment="new commit">
-      <change beforePath="$PROJECT_DIR$/src/Animals/Fox.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Animals/Fox.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Animals/Tiger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Animals/Tiger.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Simulator/Simulator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Simulator/Simulator.java" afterDir="false" />
-    </list>
+    <list default="true" id="16cd3634-5a84-4c5b-8e77-82df1c7d6a43" name="Changes" comment="new commit" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
