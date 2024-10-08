@@ -84,7 +84,7 @@ public class Tiger {
                 newTiger.setLocation(loc);
                 updatedField.put(newTiger, loc);
             }
-            // Move towards the source of food if found.
+
             Location newLocation = findFood(currentField, location);
             if (newLocation == null) { // no food found - move randomly
                 newLocation = updatedField.freeAdjacentLocation(location);

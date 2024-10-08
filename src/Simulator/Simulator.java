@@ -246,6 +246,7 @@ public class Simulator {
                     field.put(rabbit, row, col);
                 } else if (rand.nextDouble() <= TIGER_CREATION_PROBABILITY){
                     Tiger tiger = new Tiger(true);
+                    tiger.setLocation(row, col);
                     tigerList.add(tiger);
                     field.put(tiger, row, col);
                 }
