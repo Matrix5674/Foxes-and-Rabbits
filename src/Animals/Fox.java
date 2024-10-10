@@ -12,51 +12,33 @@ import java.util.List;
  * 
  * @author David J. Barnes and Michael Kolling.  Modified by David Dobervich 2007-2022
  */
-public class Fox {
-	// ----------------------------------------------------
-	// Characteristics shared by all foxes (static fields).
-	// ----------------------------------------------------
-	private static int BREEDING_AGE = 3;
-	// The age to which a fox can live.
-	private static int MAX_AGE = 50;
-	// The likelihood of a fox breeding.
-	private static double BREEDING_PROBABILITY = 0.15;
-	// The maximum number of births.
-	private static int MAX_LITTER_SIZE = 6;
-	// The food value of a single rabbit. In effect, this is the
-	// number of steps a fox can go before it has to eat again.
-	private static int RABBIT_FOOD_VALUE = 6;
-	// A shared random number generator to control breeding.
-
+public class Fox extends Animal{
 	// -----------------------------------------------------
 	// Individual characteristics (attributes).
 	// -----------------------------------------------------
-	// The fox's age.
-	private int age;
-	// Whether the fox is alive or not.
-	private boolean alive;
-	// The fox's position
-	private Location location;
-	// The fox's food level, which is increased by eating rabbits.
 	private int foodLevel;
-
+	private int RABBIT_FOOD_VALUE;
 	/**
-	 * Create a fox. A fox can be created as a new born (age zero and not
-	 * hungry) or with random age.
-	 * 
-	 * @param startWithRandomAge
-	 *            If true, the fox will have random age and hunger level.
+	 * Create a new rabbit. A rabbit may be created with age
+	 * zero (a new born) or with a random age.
+	 *
+	 * @param startWithRandomAge If true, the rabbit will have a random age.
 	 */
+
+	private int FOX_FOOD_VALUE = 8;
+
 	public Fox(boolean startWithRandomAge) {
+
+		super(5,15, 0.02, 8, 0, true);
 		age = 0;
-		alive = true;
 		if (startWithRandomAge) {
 			age = (int)(Math.random()*MAX_AGE);
-			foodLevel = (int)(Math.random()*RABBIT_FOOD_VALUE);
+			foodLevel = (int)(Math.random()* FOX_FOOD_VALUE);
 		} else {
 			// leave age at 0
-			foodLevel = RABBIT_FOOD_VALUE;
+			foodLevel = FOX_FOOD_VALUE;
 		}
+
 	}
 
 	/**
@@ -103,13 +85,6 @@ public class Fox {
 	/**
 	 * Increase the age. This could result in the fox's death.
 	 */
-	private void incrementAge() {
-		age++;
-		if (age > MAX_AGE) {
-			alive = false;
-		}
-	}
-
 	/**
 	 * Make this fox more hungry. This could result in the fox's death.
 	 */
@@ -153,51 +128,7 @@ public class Fox {
 	 * 
 	 * @return The number of births (may be zero).
 	 */
-	private int breed() {
-		int numBirths = 0;
-		if (canBreed() && Math.random() <= BREEDING_PROBABILITY) {
-			numBirths = (int)(Math.random()*MAX_LITTER_SIZE) + 1;
-		}
-		return numBirths;
-	}
 
-	/**
-	 * A fox can breed if it has reached the breeding age.
-	 */
-	private boolean canBreed() {
-		return age >= BREEDING_AGE;
-	}
-
-	/**
-	 * Check whether the fox is alive or not.
-	 * 
-	 * @return True if the fox is still alive.
-	 */
-	public boolean isAlive() {
-		return alive;
-	}
-
-	/**
-	 * Set the animal's location.
-	 * 
-	 * @param row
-	 *            The vertical coordinate of the location.
-	 * @param col
-	 *            The horizontal coordinate of the location.
-	 */
-	public void setLocation(int row, int col) {
-		this.location = new Location(row, col);
-	}
-
-	/**
-	 * Set the fox's location.
-	 * 
-	 * @param location
-	 *            The fox's location.
-	 */
-	public void setLocation(Location location) {
-		this.location = location;
-	}
 
 	public void setFoodLevel(int fl) {
 		this.foodLevel = fl;

@@ -5,9 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="16cd3634-5a84-4c5b-8e77-82df1c7d6a43" name="Changes" comment="new commit">
+      <change afterPath="$PROJECT_DIR$/src/Animals/Animal.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FoxesAndRabbitsTemplate/Animals/Tiger.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FoxesAndRabbitsTemplate/Animals/Tiger.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FoxesAndRabbitsTemplate/Simulator/Simulator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FoxesAndRabbitsTemplate/Simulator/Simulator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Animals/Fox.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Animals/Fox.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Animals/Rabbit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Animals/Rabbit.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Animals/Tiger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Animals/Tiger.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -26,7 +27,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="QODANA_PROBLEMS_VIEW_TAB" />
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 2
@@ -38,7 +39,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Application.Main.executor": "Debug",
+    "Application.Main.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
@@ -80,16 +81,5 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="new commit" />
     <option name="LAST_COMMIT_MESSAGE" value="new commit" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Animals/Tiger.java</url>
-          <line>198</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
