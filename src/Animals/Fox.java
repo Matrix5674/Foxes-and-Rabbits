@@ -13,11 +13,11 @@ import java.util.List;
  * @author David J. Barnes and Michael Kolling.  Modified by David Dobervich 2007-2022
  */
 public class Fox extends Animal{
-	// -----------------------------------------------------
-	// Individual characteristics (attributes).
-	// -----------------------------------------------------
+
 	private int foodLevel;
 	private int RABBIT_FOOD_VALUE;
+	private int FOX_FOOD_VALUE = 8;
+
 	/**
 	 * Create a new rabbit. A rabbit may be created with age
 	 * zero (a new born) or with a random age.
@@ -25,7 +25,7 @@ public class Fox extends Animal{
 	 * @param startWithRandomAge If true, the rabbit will have a random age.
 	 */
 
-	private int FOX_FOOD_VALUE = 8;
+
 
 	public Fox(boolean startWithRandomAge) {
 
@@ -52,7 +52,9 @@ public class Fox extends Animal{
 	 * @param babyFoxStorage
 	 *            A list to add newly born foxes to.
 	 */
-	public void hunt(Field currentField, Field updatedField, List<Fox> babyFoxStorage) {
+
+
+	public void act(Field currentField, Field updatedField, List<Animal> babyFoxStorage) {
 		incrementAge();
 		incrementHunger();
 		if (alive) {
@@ -88,6 +90,8 @@ public class Fox extends Animal{
 	/**
 	 * Make this fox more hungry. This could result in the fox's death.
 	 */
+
+
 	private void incrementHunger() {
 		foodLevel--;
 		if (foodLevel <= 0) {
@@ -105,6 +109,8 @@ public class Fox extends Animal{
 	 *            Where in the field it is located.
 	 * @return Where food was found, or null if it wasn't.
 	 */
+
+
 	private Location findFood(Field field, Location location) {
 		List<Location> adjacentLocations = field.adjacentLocations(location);
 

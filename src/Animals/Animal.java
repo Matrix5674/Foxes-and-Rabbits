@@ -3,9 +3,10 @@ package Animals;
 import Field.Field;
 import Field.Location;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class Animal {
+public abstract class Animal {
 
     protected int BREEDING_AGE = 3;
     // The age to which a animal can live.
@@ -34,6 +35,10 @@ public class Animal {
         this.age = age;
         this.alive = alive;
     }
+
+    public void act(Field f, Field updatedField, List<Animal> babyAnimalStorage){
+        System.out.println("This is the basic action of an animal");
+    };
 
     public int getAge() {
         return age;

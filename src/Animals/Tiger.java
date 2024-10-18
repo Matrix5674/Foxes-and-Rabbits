@@ -1,10 +1,8 @@
 package Animals;
 
-import Animals.*;
 import Field.*;
-import Graph.*;
 
-import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -61,7 +59,7 @@ public class Tiger extends Animal {
      * @param babyTigerStorage
      *            A list to add newly born tigeres to.
      */
-    public void hunt(Field currentField, Field updatedField, List<Tiger> babyTigerStorage) {
+    public void act(Field currentField, Field updatedField, List<Animal> babyTigerStorage) {
         incrementAge();
         incrementHunger();
         if (alive) {
